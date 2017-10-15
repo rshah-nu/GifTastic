@@ -1,0 +1,20 @@
+body{
+	background-image:url();
+}
+
+h1{
+	font-style: bold;
+	text-align: center;
+
+}
+
+#masthead {
+	font-size: 5em;
+	font-family: 'Berkshire Swash', cursive;
+	background-color: #fff;
+	padding: .5em .5em .5em .5em;
+	border-style: solid;
+	border-width: medium;
+	border-color: #111;
+	margin-top: 1em;
+}
