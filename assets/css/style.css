@@ -6,6 +6,8 @@ h1{
 	font-style: bold;
 	text-align: center;
 
+
+
 }
 
 #masthead {
@@ -17,4 +19,8 @@ h1{
 	border-width: medium;
 	border-color: #111;
 	margin-top: 1em;
+}
+
+.emotion{
+	color: blue;
 }
