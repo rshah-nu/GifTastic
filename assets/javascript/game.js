@@ -1,3 +1,7 @@
+    //Global variables to toggle between animated and still gifs
+    var emotionsAnimatedImage
+    var emotionsStillImage
+
     //Initial array of emotions for initial buttons
   	var emotions = ["happy", "sad", "hyper", "embarrassed", 
         "tired", "fear", "disgust", "surprise"];
@@ -27,7 +31,7 @@
       renderButtons();
 
 
-/*---------AJAX call to access API----------*/
+/*---------AJAX call to access API and return still gifs----------*/
 /*Per class discussion something along the following lines would be better.
 Trying to accomplish the base goal and THEN improve formatting.
   $.get("https://api.giphy.com/v1/gifs/search?", {api_key:"inMvyNCFgyQC1dyf6cQvHVk3djujZ24O", 
@@ -36,7 +40,7 @@ Trying to accomplish the base goal and THEN improve formatting.
     //Event listener to all buttons
     $("button").on("click", function() {
     //Create variable to hold the data from the button clicked to
-    //search in the API
+    //search in the API. Return is limited to 10
       var feelings  = $(this).attr("data-emotion");
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         feelings + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -55,24 +59,31 @@ Trying to accomplish the base goal and THEN improve formatting.
 
     //Loop to go through the results for each item
           for (var i = 0; i < results.length; i++) {
-
-            // Creating and storing a div tag
+            //Create and store a div tag
             var emotionsDiv = $("<div>");
-
-            // Creating a paragraph tag with the result item's rating
+            //Create a paragraph element with the result item's rating
             var p = $("<p>").text("Rating: " + results[i].rating);
-
-            // Creating and storing an image tag
-            var emotionsImage = $("<img>");
-            // Setting the src attribute of the image to a property pulled off the result item
-            emotionsImage.attr("src", results[i].images.fixed_height.url);
-
-            // Appending the paragraph and image tag to the animalDiv
+            //Create and store still image tag
+            var emotionsStillImage = $("<img>");
+            //Set the source to the _still version returned from the API
+            emotionsStillImage.attr("src", results[i].images.fixed_height_still.url);
+            emotionsStillImage.addClass("still");
+            //Append the rating to the gif recieved from the API
             emotionsDiv.append(p);
-            emotionsDiv.append(emotionsImage);
+            emotionsDiv.append(emotionsStillImage);
 
+            //Variable to hold animated gif
+            var emotionsAnimatedImage = $("<img>");
+            //Set the source to the animated version returned from the API
+            emotionsAnimatedImage.attr("src", results[i].images.fixed_height.url);
+            emotionsAnimatedImage.addClass("animated");
             // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
             $("#gifs-appear-here").prepend(emotionsDiv);
           }
         });
     });
+/*---------Function to then animate the still gifs received----------*/
+    $("img").on("click",  function() {
+      //If img clicked on is still, animate, if image clicked on is animated, still
+        if ("animated")
+      });
