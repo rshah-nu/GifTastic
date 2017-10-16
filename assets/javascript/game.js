@@ -69,7 +69,7 @@ Trying to accomplish the base goal and THEN improve formatting.
             emotionsStillImage.attr("src", results[i].images.fixed_height_still.url);
             emotionsStillImage.attr("data-animate", results[i].images.fixed_height.url);
             emotionsStillImage.attr("data-still", results[i].images.fixed_height_still.url);
-           emotionsStillImage.addClass("gifs");
+            emotionsStillImage.addClass("gifs");
             emotionsStillImage.attr("data-state", "still");
             //emotionsStillImage.attr("data-state", still);
             //Append the rating to the gif recieved from the API
