@@ -67,23 +67,31 @@ Trying to accomplish the base goal and THEN improve formatting.
             var emotionsStillImage = $("<img>");
             //Set the source to the _still version returned from the API
             emotionsStillImage.attr("src", results[i].images.fixed_height_still.url);
-            emotionsStillImage.addClass("still");
+            emotionsStillImage.attr("data-animate", results[i].images.fixed_height.url);
+            emotionsStillImage.attr("data-still", results[i].images.fixed_height_still.url);
+           emotionsStillImage.addClass("gifs");
+            emotionsStillImage.attr("data-state", "still");
+            //emotionsStillImage.attr("data-state", still);
             //Append the rating to the gif recieved from the API
             emotionsDiv.append(p);
             emotionsDiv.append(emotionsStillImage);
-
-            //Variable to hold animated gif
-            var emotionsAnimatedImage = $("<img>");
-            //Set the source to the animated version returned from the API
-            emotionsAnimatedImage.attr("src", results[i].images.fixed_height.url);
-            emotionsAnimatedImage.addClass("animated");
-            // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+            //Place div containing gif divs on page
             $("#gifs-appear-here").prepend(emotionsDiv);
           }
         });
     });
 /*---------Function to then animate the still gifs received----------*/
-    $("img").on("click",  function() {
+    $(document.body).on("click", ".gifs", function() {
+      var state = $(this).attr("data-state");
       //If img clicked on is still, animate, if image clicked on is animated, still
-        if ("animated")
+      if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+        }
       });
+
+
+/*---------Function push user input into array----------*/
