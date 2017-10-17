@@ -38,7 +38,7 @@ Trying to accomplish the base goal and THEN improve formatting.
   q:`${search}`, limit:"10"}).done(function(response){ */
     
     //Event listener to all buttons
-    $("button").on("click", function() {
+    $(document.body).on("click", ".emotion", function() {
     //Create variable to hold the data from the button clicked to
     //search in the API. Return is limited to 10
       var feelings  = $(this).attr("data-emotion");
