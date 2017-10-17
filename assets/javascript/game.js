@@ -100,10 +100,16 @@ Trying to accomplish the base goal and THEN improve formatting.
       event.preventDefault();
       //Variable to take user input and remove extra spaces
       var newEmotion = $("#emotion-input").val().trim();
+
+      //If user does not put anything in the form, do not create a button
+      // if ("#emotion-input") {
+
+      // }
+
       //Push user input into new array
       emotions.push(newEmotion);
       //Call the function that creates buttons 
-      createButtons();
+      //createButtons();
       //
-
+ //     console.log()
     });
