@@ -93,27 +93,23 @@ Trying to accomplish the base goal and THEN improve formatting.
         }
       });
 
-/*---------Function push user input into array----------*/
+// /*---------Function push user input into array----------*/
     
     $("#add-emotion").on("click", function (event) {
-      //Prevents the default from occuring, in this case sending user input
-      event.preventDefault();
-      //Variable to take user input and remove extra spaces
+ //      //Prevents the default from occuring, in this case sending user input
+       event.preventDefault();
+ //      //Variable to take user input and remove extra spaces
       var newEmotion = $("#emotion-input").val().trim();
-      //Loop to go through the values in the emotions array
-//      for (var i = 0; i < emotions.length; i++) {
-      //Add attributes to new button that those created from the array have
-      newEmotion.addClass("emotion");
-      newEmotion.attr("data-emotion", emotions[i]);
-      newEmotion.text(emotions[i]);
-      //If user does not put anything in the form, do not create a button
-      // if ("#emotion-input") {
-//      }
-
-      //Push user input into new array
+ //      //Loop to go through the values in the emotions array
+ // //     for (var i = 0; i < emotions.length; i++) {
+ //      //Add attributes to new button that those created from the array have
+ //      //If user does not put anything in the form, do not create a button
+ //      // if ("#emotion-input") {
+ //      //Push user input into new array
       emotions.push(newEmotion);
-      //Call the function that creates buttons 
+ //      //Call the function that creates buttons 
       createButtons();
-      //
+ //      //
      console.log(emotions);
+ //        }
     });
