@@ -5,12 +5,19 @@ body{
 h1{
 	font-style: bold;
 	text-align: center;
+	/*background-color: #00838f;*/
+}
+
+input{
+	color: #88034f;
+	background-color: ; 
 }
 
 p{
 	color: #fff;
 	font-size: 16px;
 }
+
 
 #masthead {
 	font-size: 5em;
@@ -24,7 +31,8 @@ p{
 }
 
 .emotion{
-	color: blue;
+	color: #fff;
+	background: #88034f;
 	padding: 1em;
 	margin: 1em;
 }

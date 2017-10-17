@@ -7,7 +7,7 @@
         "tired", "fear", "disgust", "surprise"];
 
       //Function to generate initial buttons from emotions array
-      function renderButtons() {
+      function createButtons() {
         //Deleting the emotions prior to adding new emotions
         //Will stop repeat buttons from being created
         $("#buttons-view").empty();
@@ -28,7 +28,7 @@
       };
 
       //Call to create buttons
-      renderButtons();
+      createButtons();
 
 
 /*---------AJAX call to access API and return still gifs----------*/
@@ -93,5 +93,17 @@ Trying to accomplish the base goal and THEN improve formatting.
         }
       });
 
-
 /*---------Function push user input into array----------*/
+    
+    $("#add-emotion").on("click", function (event) {
+      //Prevents the default from occuring, in this case sending user input
+      event.preventDefault();
+      //Variable to take user input and remove extra spaces
+      var newEmotion = $("#emotion-input").val().trim();
+      //Push user input into new array
+      emotions.push(newEmotion);
+      //Call the function that creates buttons 
+      createButtons();
+      //
+
+    });
